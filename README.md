@@ -12,8 +12,8 @@ It’s designed to support mental well-being through empathetic conversations, m
 </div>
 <div align="center">
 
-  <img src="assets/demo1.png" alt="MindOrba Demo 1" width="400"/>
-  <img src="assets/demo2.png" alt="MindOrba Demo 2" width="400"/>
+  <img src="assets/demo-1.png" alt="MindOrba Demo 1" width="400"/>
+  <img src="assets/demo-2.png" alt="MindOrba Demo 2" width="400"/>
 
 </div>
 
