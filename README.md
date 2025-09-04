@@ -9,7 +9,11 @@ It’s designed to support mental well-being through empathetic conversations, m
 
   <br><br>
 
-  [▶️ Click here to watch full demo](assets/demo.mp4)
+</div>
+<div align="center">
+
+  <img src="assets/demo1.png" alt="MindOrba Demo 1" width="400"/>
+  <img src="assets/demo2.png" alt="MindOrba Demo 2" width="400"/>
 
 </div>
 
