@@ -1,29 +1,38 @@
-Mental Health Chatbot 🤖🧠
+# 🧠 MindOrba – Mental Health Chatbot  
 
-A conversational AI chatbot designed to support mental well-being by engaging users in empathetic dialogue. The chatbot allows users to track moods, select personas, and receive supportive responses in a safe and interactive way.
+**MindOrba** is a conversational AI chatbot built with **Python (Flask)**, using **JSON** for lightweight data storage and **Ollama** for natural language processing.  
+It’s designed to support mental well-being through empathetic conversations, mood tracking, and persona-driven interactions.  
 
-✨ Features
+---
 
-User authentication (login, logout, account management)
+## ✨ Features  
+- 🔐 **User Authentication** – login, logout, and account management  
+- 📊 **Mood Tracking** – record and view mood history  
+- 🎭 **Persona Selection** – interact with different chatbot personalities  
+- 💬 **Conversation History** – store and review past chats  
+- 📂 **Data Export** – download personal mood and chat data  
 
-Mood tracking with history
+---
 
-Persona-based chatbot responses
+## 🛠️ Tech Stack  
+- **Language:** Python 🐍  
+- **Framework:** Flask 🌐  
+- **Database:** JSON 📄  
+- **AI/NLP:** Ollama 🤖  
 
-Conversation history management
+---
 
-Data export for personal insights
+## 🚀 Getting Started  
 
-🔧 Tech Stack
+```bash
+# Clone the repo
+git clone https://github.com/deept-369/Mental-Health-Chatbot-MindOrba.git
 
-Backend: Java / Spring Boot (or mention your stack)
+# Navigate into project
+cd Mental-Health-Chatbot-MindOrba
 
-Frontend: React / HTML / CSS (if applicable)
+# Install dependencies
+pip install -r requirements.txt
 
-Database: MySQL / MongoDB (as used)
-
-AI/ML: NLP techniques for response generation
-
-🚀 Goals
-
-This project is built to explore how AI can assist in mental health awareness and self-reflection. While it does not replace professional help, it provides a safe and supportive companion for everyday use.
+# Run the app
+python app.py
