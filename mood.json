@@ -1,0 +1,83 @@
+{
+  "mood_indicators": {
+    "positive": {
+      "keywords": [
+        "happy",
+        "good",
+        "great",
+        "excellent",
+        "better",
+        "awesome",
+        "wonderful",
+        "fantastic"
+      ],
+      "mood_level": "happy",
+      "motivation": [
+        "Keep spreading your positive energy!",
+        "Your happiness is contagious!",
+        "You're doing great, keep shining!"
+      ]
+    },
+    "neutral": {
+      "keywords": ["okay", "fine", "alright", "normal", "usual"],
+      "mood_level": "neutral",
+      "motivation": [
+        "Tomorrow brings new opportunities!",
+        "You're stronger than you know",
+        "Small steps lead to big changes"
+      ]
+    },
+    "sad": {
+      "keywords": [
+        "sad",
+        "down",
+        "upset",
+        "stressed",
+        "worried",
+        "anxious",
+        "depressed",
+        "tired"
+      ],
+      "mood_level": "sad",
+      "motivation": [
+        "Remember, every cloud has a silver lining",
+        "This too shall pass, stay strong",
+        "You're not alone, better days are coming"
+      ]
+    }
+  },
+  "time_greetings": {
+    "morning": {
+      "hours": [5, 11],
+      "messages": [
+        "Have a wonderful day ahead!",
+        "Make today amazing!",
+        "Wishing you a bright and beautiful day!"
+      ]
+    },
+    "afternoon": {
+      "hours": [12, 16],
+      "messages": [
+        "Have a great rest of your day!",
+        "Keep up the good work!",
+        "Hope your afternoon is going well!"
+      ]
+    },
+    "evening": {
+      "hours": [17, 20],
+      "messages": [
+        "Have a relaxing evening!",
+        "Enjoy your evening!",
+        "Wishing you a peaceful evening!"
+      ]
+    },
+    "night": {
+      "hours": [21, 4],
+      "messages": [
+        "Have a good night's sleep!",
+        "Sweet dreams!",
+        "Rest well and recharge!"
+      ]
+    }
+  }
+}

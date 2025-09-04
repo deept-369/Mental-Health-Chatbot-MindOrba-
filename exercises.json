@@ -1,0 +1,518 @@
+{
+  "intents": [
+    {
+      "tag": "depression-exercises",
+      "patterns": [
+        "I feel depressed, what can I do?",
+        "Exercises for depression",
+        "How can I get out of depression?",
+        "I'm feeling really low",
+        "Best activities for depression",
+        "Ways to boost my mood when depressed",
+        "Physical things to do for depression",
+        "What helps with depression?",
+        "How to feel better with exercise",
+        "Activities to improve mental health"
+      ],
+      "responses": [
+        "Start with these proven steps: 1) Take a 10-minute walk outdoors, focusing on the sensation of your feet touching the ground. 2) Put on your favorite uplifting song and gently move or stretch to it. 3) Try 5 minutes of simple yoga poses like child's pose or cat-cow stretches. 4) Engage in a small creative task like drawing or organizing photos. Remember to be patient with yourself—recovery happens gradually, and seeking professional help is always okay. You're taking an important step by looking for ways to feel better."
+      ]
+    },
+    {
+      "tag": "suicidal-thoughts",
+      "patterns": [
+        "I feel like ending my life",
+        "I want to die",
+        "I'm thinking about suicide",
+        "Life is not worth living",
+        "I don't want to live anymore",
+        "I feel like giving up completely",
+        "No one would miss me",
+        "I'm done with everything",
+        "How to end it all",
+        "I can't take this anymore"
+      ],
+      "responses": [
+        "Your life has immense value, and these thoughts are temporary. Take these immediate actions: 1) Call a suicide prevention hotline now—US: 988, UK: 116 123, India: AASRA +91-9820466726, Australia: 13 11 14. They are available 24/7 and want to listen. 2) If you have a plan to harm yourself, call emergency services (911/112/000) immediately. 3) Contact a trusted friend, family member, or counselor—you don't have to face this alone. 4) Remove any means of self-harm from your environment. 5) Stay in a safe place with others. Remember: these feelings can improve with proper support and treatment. You deserve to live and be helped."
+      ]
+    },
+    {
+      "tag": "sadness-exercises",
+      "patterns": [
+        "I feel sad, what can I do?",
+        "Can you give me exercises for sadness?",
+        "How can I lift my mood?",
+        "I’m feeling down, help me feel better",
+        "Ways to cope with feeling empty",
+        "How do I get out of sadness?",
+        "Exercises to reduce sadness",
+        "Best activities for sadness",
+        "Physical things to do when sad",
+        "How can I improve my mood today?"
+      ],
+      "responses": [
+        "Here's a gentle approach to lifting your mood: 1) Take a 15-minute nature walk, paying attention to natural sounds and sights. 2) Create a 'mood boost' playlist with 5-10 songs that remind you of happier times. 3) Write down three small things that went okay today, even if they seem tiny. 4) Try simple stretches while taking deep breaths—reach up, then forward bend, letting your arms hang loose. 5) If possible, connect with someone you trust, even through a brief message. These small steps can help shift your emotional state gradually."
+      ]
+    },
+    {
+      "tag": "fear-anxiety-exercises",
+      "patterns": [
+        "I feel scared, what should I do?",
+        "Exercises to calm anxiety",
+        "I’m feeling anxious",
+        "How do I deal with fear?",
+        "What helps with anxiety?",
+        "Ways to reduce fear through exercise",
+        "How to relax when anxious",
+        "Breathing exercises for fear",
+        "Physical ways to calm anxiety",
+        "Workouts for anxiety relief"
+      ],
+      "responses": [
+        "Let's calm your anxiety with these proven techniques: 1) Try the 4-7-8 breathing exercise: inhale for 4 counts, hold for 7, exhale for 8. Repeat 4 times. 2) Use the 5-4-3-2-1 method: name 5 things you see, 4 things you can touch, 3 things you hear, 2 things you smell, and 1 thing you taste. 3) Place your hand on your chest and feel your heartbeat while taking slow breaths. 4) Tense and release each muscle group for 5 seconds, starting from your toes up to your face. 5) Sip cold water slowly, focusing on the sensation. Remember, anxiety always passes—you've gotten through it before."
+      ]
+    },
+    {
+      "tag": "anger-exercises",
+      "patterns": [
+        "I feel angry, what can I do?",
+        "How do I control my rage?",
+        "Exercises for anger",
+        "How can I calm fury?",
+        "Physical activity to release anger",
+        "Best workouts for rage",
+        "Ways to release anger safely",
+        "What can I do when furious?",
+        "Breathing exercises for anger",
+        "Anger management activities"
+      ],
+      "responses": [
+        "Handle your anger safely with these steps: 1) Step away from the triggering situation immediately. 2) Release physical tension through: 10 pushups, rapid walking, or punching a pillow. 3) Use 'dragon breathing': inhale deeply, then exhale forcefully through your mouth like you're breathing fire, repeat 5 times. 4) Squeeze an ice cube or splash cold water on your face—this activates your body's calming response. 5) Write down what's making you angry, then tear up the paper. Remember: anger is normal, but managing it protects you and others. If anger is frequent, consider speaking with a counselor."
+      ]
+    },
+    {
+      "tag": "apathy-exercises",
+      "patterns": [
+        "I feel indifferent, what can I do?",
+        "How do I get motivated?",
+        "Exercises for apathy",
+        "I feel like I don’t care about anything",
+        "How to overcome lack of motivation",
+        "Activities to boost energy",
+        "Best workouts for low drive",
+        "Physical things to help apathy",
+        "Ways to feel engaged again",
+        "How to break out of indifference"
+      ],
+      "responses": [
+        "Break through apathy with this gentle approach: 1) Set a 5-minute timer and do one tiny task, like organizing one drawer or watering one plant. 2) Take a brief shower or wash your face with cool water to refresh your senses. 3) Step outside for 3 minutes—even just standing by a window helps. 4) Put on music from a time when you felt more engaged. 5) Text one person you care about. Don't pressure yourself to feel differently immediately—focus on small actions first, and emotions often follow. Each small step counts, even if it doesn't feel significant right now."
+      ]
+    },
+    {
+      "tag": "disgust-exercises",
+      "patterns": [
+        "I feel disgusted, what should I do?",
+        "How do I deal with hatred?",
+        "Exercises for contempt",
+        "Ways to reduce disgust",
+        "I feel hatred toward someone",
+        "Activities to release disgust",
+        "What to do when you feel contempt",
+        "How to calm disgust",
+        "Physical ways to reduce hatred",
+        "How do I handle contempt?"
+      ],
+      "responses": [
+        "Here's how to process feelings of disgust constructively: 1) Physically distance yourself from what's triggering these feelings. 2) Use the 'cleansing breath' technique: inhale through your nose for 4 counts, hold briefly, then exhale forcefully through your mouth for 6 counts, imagining releasing the negative energy. 3) Wash your hands or face with cool water, focusing on the fresh sensation. 4) Channel the energy into productive cleaning or organizing—start with a small area you can completely transform in 10 minutes. 5) If the feelings relate to a person or situation, write down your thoughts, then deliberately switch to a different activity. Consider talking to a counselor if these feelings persist."
+      ]
+    },
+    {
+      "tag": "jealousy-exercises",
+      "patterns": [
+        "I feel jealous, what can I do?",
+        "How do I stop envy?",
+        "Exercises for jealousy",
+        "Ways to overcome envy",
+        "I feel envious of someone",
+        "How to deal with jealousy",
+        "Physical activities for jealousy",
+        "Breathing exercises for envy",
+        "What can I do when I feel jealous?",
+        "How to redirect jealousy"
+      ],
+      "responses": [
+        "Transform jealousy into self-growth with these steps: 1) Acknowledge the feeling without judgment, then do 10 jumping jacks or stretch to release the tension. 2) Write down 3 specific things you've achieved or qualities you're proud of. 3) Practice the 'abundance mindset': list 5 good things in your life right now. 4) Channel the energy into a personal goal—spend 15 minutes working on a skill you want to improve. 5) If social media triggers these feelings, take a 24-hour break and focus on your own progress. Remember: everyone's journey is different, and your worth isn't determined by comparing yourself to others."
+      ]
+    },
+    {
+      "tag": "insecurity-exercises",
+      "patterns": [
+        "I feel insecure, what can I do?",
+        "Exercises for self-doubt",
+        "How to build confidence",
+        "Activities for insecurity",
+        "I doubt myself a lot",
+        "How do I stop feeling insecure?",
+        "Best exercises to boost self-esteem",
+        "Physical ways to feel confident",
+        "How to overcome self-doubt",
+        "Confidence building activities"
+      ],
+      "responses": [
+        "Build your confidence with these proven techniques: 1) Start with the 'Superman pose': stand tall, feet apart, hands on hips, chin up for 2 minutes—this actually changes your body chemistry. 2) Do 5 minutes of strength-building exercises like wall pushups or squats, focusing on how capable your body is. 3) Look in the mirror and say three specific, true statements about your abilities (e.g., 'I am good at solving problems'). 4) Write down one small win from today, no matter how tiny. 5) Wear something that makes you feel confident and notice how it affects your posture. Remember: confidence builds gradually through small, consistent actions."
+      ]
+    },
+    {
+      "tag": "remorse-guilt-exercises",
+      "patterns": [
+        "I feel guilty, what can I do?",
+        "Exercises for remorse",
+        "How do I forgive myself?",
+        "Activities to release guilt",
+        "I regret something deeply",
+        "How to overcome guilt",
+        "Physical activities to deal with remorse",
+        "Ways to move past regret",
+        "How to handle guilt",
+        "Workouts for guilt relief"
+      ],
+      "responses": [
+        "Process guilt constructively with these steps: 1) Take a 10-minute mindful walk, focusing on each step and your breath to stay present. 2) Write a compassionate letter to yourself acknowledging the situation and expressing forgiveness—you don't need to send it. 3) Practice gentle yoga poses like child's pose or forward fold, breathing into any tension. 4) List three things you've learned from the situation. 5) Do one positive action today to balance your thoughts. Remember: guilt shows you care about doing right, but dwelling on it prevents growth. If guilt persists, consider speaking with a counselor."
+      ]
+    },
+    {
+      "tag": "shame-humiliation-exercises",
+      "patterns": [
+        "I feel ashamed, what can I do?",
+        "How to cope with humiliation",
+        "Exercises for shame",
+        "Ways to handle embarrassment",
+        "I feel humiliated",
+        "Activities to reduce shame",
+        "How do I get over humiliation?",
+        "Breathing exercises for embarrassment",
+        "What can I do when ashamed?",
+        "How to release shame"
+      ],
+      "responses": [
+        "Work through shame and humiliation with these steps: 1) Find a private space and practice deep belly breathing—inhale for 4 counts, hold for 2, exhale for 6. 2) Do gentle stretches focusing on opening your chest and shoulders to counter the tendency to shrink inward. 3) Write in a private journal about the situation, then list 3 ways you'd show compassion to a friend in the same situation. 4) Challenge negative self-talk by writing down evidence that contradicts your harsh thoughts. 5) Do something that makes you feel capable, even if it's small. Remember: everyone experiences these feelings—they don't define your worth."
+      ]
+    },
+    {
+      "tag": "loneliness-exercises",
+      "patterns": [
+        "I feel lonely, what can I do?",
+        "Exercises for loneliness",
+        "Activities to feel less isolated",
+        "How to cope with feeling alone",
+        "I feel isolated",
+        "What can I do to feel connected?",
+        "Ways to reduce loneliness",
+        "Physical activities for isolation",
+        "How do I feel less lonely?",
+        "Workouts for connection"
+      ],
+      "responses": [
+        "Combat loneliness with these connection-building activities: 1) Take a 15-minute walk in a public space—even brief encounters can help. 2) Join an online or local group related to your interests—start with one session to ease in. 3) Reach out to one person daily, even with a simple 'thinking of you' message. 4) Volunteer locally or virtually—helping others creates meaningful connections. 5) Start a creative project you can share, like photography or cooking. 6) Consider adopting a pet if you're able to care for one. Remember: feeling lonely is common and temporary—taking small steps toward connection makes a difference."
+      ]
+    },
+    {
+      "tag": "worthlessness-exercises",
+      "patterns": [
+        "I feel worthless, what can I do?",
+        "Exercises for low self-esteem",
+        "How to boost my self-worth",
+        "Activities for worthlessness",
+        "I don’t feel good about myself",
+        "How do I value myself again?",
+        "Ways to improve self-esteem",
+        "Physical ways to feel better about myself",
+        "How to overcome worthlessness",
+        "Confidence exercises for low esteem"
+      ],
+      "responses": [
+        "Build your sense of worth with these empowering steps: 1) Start with the 'Mountain Pose': stand tall, shoulders back, take 5 deep breaths—feel your strength and presence. 2) Set one small, achievable goal for today and break it into tiny steps. 3) Write down 3 things you've overcome in your life, no matter how small. 4) Do 10 minutes of gentle movement (walking, stretching, or dancing) focusing on what your body can do. 5) Create and repeat a personal power statement like 'I am worthy of good things' while looking in a mirror. Remember: your worth is inherent—it doesn't depend on achievements or others' opinions."
+      ]
+    },
+    {
+      "tag": "hopelessness-exercises",
+      "patterns": [
+        "I feel hopeless, what can I do?",
+        "Exercises for helplessness",
+        "How to find hope again",
+        "Activities for hopelessness",
+        "I feel like giving up",
+        "What can I do when I feel helpless?",
+        "Ways to cope with hopelessness",
+        "Physical activities for helplessness",
+        "How to get out of despair",
+        "Hope building exercises"
+      ],
+      "responses": [
+        "Navigate through hopelessness with these gentle steps: 1) Start with a 5-minute task—make your bed, water a plant, or organize one drawer. 2) Take a 10-minute walk, even if just around your room or garden. 3) Write down one tiny positive thing each day, no matter how small. 4) Create a simple morning routine: stretch, drink water, open curtains. 5) Reach out to one person who makes you feel safe—send a simple message or make a brief call. Remember: hope often returns gradually through small actions. If these feelings persist, please reach out to a mental health professional—they can help light the way forward."
+      ]
+    },
+    {
+      "tag": "irritability-exercises",
+      "patterns": [
+        "I feel irritable, what can I do?",
+        "Exercises for irritability",
+        "How to calm irritability",
+        "Activities to stop being annoyed",
+        "I’m easily irritated",
+        "Ways to release frustration",
+        "How do I relax when annoyed?",
+        "Best workouts for irritability",
+        "Physical activities for frustration",
+        "How to stop snapping at people"
+      ],
+      "responses": [
+        "Manage irritability with these calming techniques: 1) Practice 'Box Breathing': inhale 4 counts, hold 4, exhale 4, hold 4—repeat for 1 minute. 2) Do neck and shoulder rolls while counting slowly to release tension. 3) Put on calming music and walk or jog in place for 5 minutes. 4) Drink a glass of cold water slowly, focusing on the sensation. 5) Step outside or near a window for fresh air and count 10 things you can see. Remember: irritability is often a sign of overwhelm or unmet needs—take a moment to check if you need rest, food, or a break from stimulation."
+      ]
+    },
+    {
+      "tag": "despair-exercises",
+      "patterns": [
+        "I feel despair, what can I do?",
+        "Exercises for deep sadness",
+        "How to cope with despair",
+        "Activities for hopelessness",
+        "I feel like I’ve lost everything",
+        "Ways to deal with despair",
+        "Physical ways to handle despair",
+        "Best exercises for hopeless feelings",
+        "How to survive despair",
+        "Coping activities for despair"
+      ],
+      "responses": [
+        "Navigate through despair with these grounding practices: 1) Hold something warm like tea or a heat pack—focus on its temperature and weight in your hands. 2) If possible, walk barefoot on grass or carpet, noticing each sensation. 3) Do gentle stretches while naming parts of your body: 'I feel my arms reaching, my feet pressing down.' 4) Create a comfort spot with soft textures and dim lighting. 5) Set a timer for 5 minutes of focused breathing—place a hand on your heart to feel its steady beat. Remember: despair, though intense, is not permanent. Reach out to a counselor or trusted person—you don't have to carry this alone."
+      ]
+    },
+    {
+      "tag": "burnout-exercises",
+      "patterns": [
+        "I feel burnt out",
+        "I'm exhausted mentally",
+        "How to recover from burnout",
+        "I can't keep going like this",
+        "Exercises for burnout",
+        "I'm drained",
+        "How to feel energized again",
+        "What to do when burned out",
+        "Activities for mental exhaustion",
+        "Best workouts for burnout"
+      ],
+      "responses": [
+        "Recover from burnout with these restorative steps: 1) Take a complete pause from demanding tasks—it's not lazy, it's necessary. 2) Do 5 minutes of gentle stretches, focusing on your neck, shoulders, and back. 3) Take a slow 10-minute walk, preferably in nature or a quiet space. 4) Practice the 4-4-4 breath: breathe in for 4, hold for 4, exhale for 4. 5) Drink water mindfully throughout the day—set gentle reminders if needed. 6) Create clear boundaries between work and rest times. Remember: burnout is a sign to reassess your energy balance. Consider talking to someone about managing your responsibilities."
+      ]
+    },
+    {
+      "tag": "overthinking-exercises",
+      "patterns": [
+        "I can't stop thinking",
+        "My thoughts won't slow down",
+        "How to stop overthinking",
+        "Exercises for racing thoughts",
+        "I'm overthinking everything",
+        "How to calm my mind",
+        "Activities to stop overthinking",
+        "Ways to focus better",
+        "How to quiet my thoughts",
+        "Mind exercises for overthinking"
+      ],
+      "responses": [
+        "Calm overthinking with these grounding techniques: 1) Use the 5-4-3-2-1 method: name 5 things you see, 4 you can touch, 3 you hear, 2 you smell, and 1 you taste. 2) Do a 'brain dump'—write all your thoughts for 5 minutes without judging them. 3) Set a 'worry time' limit of 10 minutes, then deliberately switch to a physical activity. 4) Practice 'butterfly hugs'—cross your arms and tap shoulders alternately for 1 minute. 5) Choose a simple task like washing dishes and focus entirely on the physical sensations. Remember: thoughts are not facts, and you don't have to engage with every one that appears."
+      ]
+    },
+    {
+      "tag": "confusion-exercises",
+      "patterns": [
+        "I feel lost",
+        "I'm confused",
+        "How to think clearly",
+        "Exercises for clarity",
+        "I don't know what to do",
+        "My mind feels foggy",
+        "How to stop feeling confused",
+        "Activities to improve focus",
+        "How to clear my thoughts",
+        "Ways to think straight"
+      ],
+      "responses": [
+        "Clear confusion with these organizing steps: 1) Get a paper and pen—write down all your thoughts without trying to order them yet. 2) Take a 10-minute walk or change your environment completely. 3) Return to your list and categorize thoughts into 'Now,' 'Later,' and 'Not Important.' 4) Pick ONE 'Now' item and break it into small, manageable steps. 5) Use color coding or diagrams if it helps visualize your thoughts better. Remember: confusion is temporary, and sometimes stepping back helps you see things more clearly. If important decisions are involved, it's okay to take time or ask for advice."
+      ]
+    },
+    {
+      "tag": "boredom-exercises",
+      "patterns": [
+        "I'm bored",
+        "How to stop feeling bored",
+        "Exercises for boredom",
+        "Fun things to do",
+        "Activities for boredom relief",
+        "Ways to entertain myself",
+        "I have nothing to do",
+        "Best hobbies to try",
+        "What to do when bored",
+        "How to use my free time"
+      ],
+      "responses": [
+        "Transform boredom into engagement with these activities: 1) Learn a 5-minute skill on YouTube—try origami, a magic trick, or a new dance move. 2) Rearrange one small area of your space for a fresh perspective. 3) Create a 15-minute workout mixing jumping jacks, squats, and stretches. 4) Start a 30-day challenge in something that interests you—photography, writing, or cooking. 5) Look up free online courses in subjects you've always been curious about. 6) Write down three things you've always wanted to try but haven't yet. Remember: boredom can be a signal to explore new interests and grow."
+      ]
+    },
+    {
+      "tag": "joy-celebration",
+      "patterns": [
+        "I feel so happy",
+        "I'm in a great mood",
+        "I feel joy",
+        "I'm excited about today",
+        "Life feels amazing",
+        "I'm having a good day",
+        "I feel cheerful",
+        "Everything feels right",
+        "I'm smiling a lot",
+        "I'm full of energy today"
+      ],
+      "responses": [
+        "Amplify and cherish this joyful moment: 1) Put on your favorite upbeat song and dance freely for 2-3 minutes—movement enhances positive emotions. 2) Share your happiness with someone through a call, text, or voice message—joy multiplies when shared. 3) Write down the details of what made you happy today, including how your body feels and what triggered this joy. 4) Take a photo or create a quick sketch to capture this moment. 5) Do one small act of kindness—joy flows both ways when shared with others. Remember: acknowledging and celebrating positive emotions helps build resilience for challenging times."
+      ]
+    },
+    {
+      "tag": "gratitude",
+      "patterns": [
+        "I feel thankful",
+        "I'm feeling grateful",
+        "I appreciate my life",
+        "I'm blessed",
+        "Life feels good",
+        "I'm thankful for what I have",
+        "I'm feeling content",
+        "I appreciate everything",
+        "I'm grateful for my friends",
+        "Gratitude exercises"
+      ],
+      "responses": [
+        "Enhance your gratitude with these meaningful practices: 1) Take 5 minutes to write down 3 specific things you're thankful for and why they matter to you. 2) Send a genuine thank-you message to someone who's positively impacted your life. 3) Take a photo of something you're grateful for today and add a note about why. 4) Spend 2 minutes focusing on a simple pleasure—like the warmth of sunlight or taste of your favorite drink. 5) Create a 'gratitude jar' and add one note each day. Remember: regularly practicing gratitude can improve mental health and overall life satisfaction."
+      ]
+    },
+    {
+      "tag": "love-affection",
+      "patterns": [
+        "I feel loved",
+        "I love someone",
+        "I feel affectionate",
+        "I care deeply for someone",
+        "Love is in the air",
+        "I'm in love",
+        "I appreciate someone special",
+        "I'm feeling affectionate",
+        "I want to express love",
+        "I'm feeling romantic"
+      ],
+      "responses": [
+        "Cherish and express your feelings of love with these meaningful actions: 1) Write a heartfelt letter expressing what you appreciate about the person—be specific about their qualities and impact on your life. 2) Plan a thoughtful activity based on their interests or shared memories. 3) Practice active listening—give them your full attention and ask about their thoughts and feelings. 4) Create a small care package with their favorite things. 5) Share photos or memories that remind you of special moments together. Remember: love grows stronger through consistent, genuine expression and meaningful actions."
+      ]
+    },
+    {
+      "tag": "calm-relaxation",
+      "patterns": [
+        "I feel peaceful",
+        "I'm calm right now",
+        "I feel relaxed",
+        "I'm stress-free",
+        "Everything feels balanced",
+        "I'm at ease",
+        "I'm in a good mental space",
+        "I feel serene",
+        "I'm feeling tranquil",
+        "I'm mentally clear"
+      ],
+      "responses": [
+        "Maintain and deepen your peaceful state with these practices: 1) Set a 5-minute timer and focus on your breath—notice its natural rhythm without trying to change it. 2) Do gentle neck and shoulder rolls, feeling any tension dissolve. 3) Create a calming playlist with nature sounds, gentle music, or meditation tracks. 4) Find a comfortable spot and scan your body from head to toe, relaxing each part. 5) Take a mindful moment to observe your surroundings without judgment. Remember: moments of calm are valuable—they help build resilience for more challenging times."
+      ]
+    },
+    {
+      "tag": "motivation-energy",
+      "patterns": [
+        "I feel motivated",
+        "I'm ready to take on the day",
+        "I'm energized",
+        "I feel productive",
+        "I'm inspired",
+        "I have so much drive",
+        "I'm feeling ambitious",
+        "I'm pumped up",
+        "I'm determined",
+        "I'm ready to go"
+      ],
+      "responses": [
+        "Harness your motivation effectively with these strategies: 1) Write down your top 3 priorities for today, breaking them into smaller, actionable steps. 2) Start with the most challenging task while your energy is high. 3) Set a timer for 25 minutes of focused work, then take a 5-minute break. 4) Create a visible progress tracker for your goals. 5) Plan a small reward for completing your important tasks. Remember: motivation is like a wave—ride it while it's strong, but also build sustainable habits for when it naturally fluctuates."
+      ]
+    },
+    {
+      "tag": "pride-achievement",
+      "patterns": [
+        "I feel proud",
+        "I accomplished something",
+        "I achieved my goal",
+        "I'm feeling successful",
+        "I did it",
+        "I feel accomplished",
+        "I'm proud of myself",
+        "I reached my milestone",
+        "I'm feeling victorious",
+        "I made progress"
+      ],
+      "responses": [
+        "Celebrate your achievement mindfully: 1) Write down what you accomplished and the specific steps you took to get there. 2) Share your success with someone who supports your growth. 3) Take a photo or screenshot to capture this milestone. 4) Reward yourself with something meaningful—a small treat, dedicated relaxation time, or an activity you enjoy. 5) Reflect on what you learned during the process and how it will help with future goals. Remember: acknowledging achievements, big or small, builds confidence and motivation for future challenges."
+      ]
+    },
+    {
+      "tag": "sleep-issues",
+      "patterns": [
+        "I can't sleep",
+        "Having trouble sleeping",
+        "Bad sleep",
+        "I am goes bad sleep",
+        "Not sleeping well",
+        "Insomnia problems",
+        "Sleep issues",
+        "Difficulty falling asleep",
+        "Poor sleep quality",
+        "Haven't slept well",
+        "Sleep problems",
+        "Didn't sleep last night",
+        "Can't fall asleep",
+        "Sleep schedule is off",
+        "Not getting enough sleep"
+      ],
+      "responses": [
+        "I understand you're having trouble with sleep. Let's work on improving your sleep quality. Here are some immediate steps: 1) Try to maintain regular meal times - skipping meals can affect sleep quality. 2) Practice the 4-7-8 breathing technique before bed: inhale for 4 seconds, hold for 7, exhale for 8. 3) Keep your bedroom cool and dark. 4) Avoid screens 1 hour before bedtime. 5) Consider a light snack like banana or warm milk if hunger affects your sleep. Would you like to tell me more about your sleep routine so I can provide more specific guidance?"
+      ]
+    },
+    {
+      "tag": "eating-habits",
+      "patterns": [
+        "I didn't eat",
+        "Skipped meals",
+        "Not eating well",
+        "Haven't eaten today",
+        "Forgot to eat",
+        "No appetite",
+        "Skip food",
+        "Missing meals",
+        "Don't feel like eating",
+        "Poor eating habits",
+        "Irregular meals",
+        "Not hungry",
+        "Eating problems",
+        "Diet issues",
+        "Food routine"
+      ],
+      "responses": [
+        "I hear that you're having difficulties with eating regularly. This can significantly affect your sleep and overall well-being. Here are some helpful steps: 1) Start with small, frequent meals if big meals feel overwhelming. 2) Set gentle reminders for mealtimes. 3) Keep easy-to-eat snacks handy like fruits or nuts. 4) Try drinking smoothies or protein shakes if solid food is difficult. 5) Consider eating with others or while doing an enjoyable activity. Would you like to discuss what makes regular eating challenging for you?"
+      ]
+    }
+  ]
+}

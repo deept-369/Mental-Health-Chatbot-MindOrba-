@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+      rel="icon"
+      type="image/png"
+      href="{{ url_for('static', filename='sub-logo.png') }}" />
+    <title>MindOrba Slides</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap"
+      rel="stylesheet" />
+    <style>
+      /* =================================
+           BASE STYLES & RESET
+        ================================= */
+      html,
+      body {
+        background-color: #0f0f0f;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        overflow: hidden; /* Hide default scrollbar */
+        font-family: "Orbitron", sans-serif;
+      }
+
+      /* =================================
+           FULL PAGE SCROLL CONTAINER
+        ================================= */
+      .fullpage-container {
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .sections-wrapper {
+        height: 100vh;
+        transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        will-change: transform;
+      }
+
+      /* =================================
+           DOT NAVIGATION
+        ================================= */
+      .dot-navigation {
+        position: fixed;
+        right: 30px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .nav-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.3);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        border: 2px solid transparent;
+      }
+
+      .nav-dot:hover {
+        background-color: rgba(255, 255, 255, 0.6);
+        transform: scale(1.2);
+      }
+
+      .nav-dot.active {
+        background-color: #81a4b7;
+        border-color: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 15px rgba(129, 164, 183, 0.6);
+      }
+
+      .nav-dot::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 4px;
+        height: 4px;
+        background-color: white;
+        border-radius: 50%;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .nav-dot.active::after {
+        opacity: 1;
+      }
+
+      /* =================================
+           INTERACTIVE EFFECTS
+        ================================= */
+
+      /* Sparkle Effect */
+      .sparkle {
+        position: fixed;
+        width: 6px;
+        height: 6px;
+        background-color: #6cb4ff;
+        border-radius: 50%;
+        pointer-events: none;
+        opacity: 0.8;
+        animation: sparkleEffect 0.7s linear forwards;
+        box-shadow: 0 0 10px #6cb4ff, 0 0 20px #6cb4ff;
+        z-index: 10;
+      }
+
+      @keyframes sparkleEffect {
+        0% {
+          transform: translate(0, 0) scale(1);
+          opacity: 1;
+        }
+        100% {
+          transform: translate(0, -20px) scale(0.5);
+          opacity: 0;
+        }
+      }
+
+      /* Floating Particles Background */
+      .background-particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden;
+      }
+
+      .particle {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: #305563;
+        border-radius: 50%;
+        box-shadow: 0 0 8px #305563;
+        animation: floatUp linear;
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateY(100vh) scale(0.3);
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-10vh) scale(1.2);
+          opacity: 0;
+        }
+      }
+
+      /* =================================
+           LAYOUT & SECTIONS
+        ================================= */
+
+      /* Main Section Styles */
+      section {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        box-sizing: border-box;
+        background: #0f0f0f;
+        color: #ffffff;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+
+      /* Section Animation Classes */
+      section.section-active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      section.section-visited {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .section-title {
+        font-size: 5rem;
+        color: #ffffff;
+        align-self: flex-start;
+        margin-top: 50px;
+        margin-left: 100px;
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
+      }
+
+      section.section-active .section-title,
+      section.section-visited .section-title {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      /* =================================
+           HEADER & NAVIGATION
+        ================================= */
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 1000px;
+        margin-top: 1.5%;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s;
+      }
+
+      section.section-active header,
+      section.section-visited header {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .logo {
+        font-size: 28px;
+        color: white;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .logo:hover {
+        transform: scale(1.05);
+        text-shadow: 0 0 15px #81a4b7;
+      }
+
+      .logo span {
+        color: #81a4b7;
+        transition: color 0.3s ease;
+      }
+
+      .logo:hover span {
+        color: #6cb4ff;
+      }
+
+      nav a {
+        color: white;
+        margin: 0 20px;
+        text-decoration: none;
+        font-size: 16px;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 50%;
+        background-color: #81a4b7;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+
+      nav a:hover {
+        color: #81a4b7;
+        transform: translateY(-2px);
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      .start-chat {
+        background: #4f7c8f;
+        padding: 10px 20px;
+        border-radius: 20px;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .start-chat::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+
+      .start-chat:hover {
+        background: #5a8ba0;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(79, 124, 143, 0.4);
+      }
+
+      .start-chat:hover::before {
+        left: 100%;
+      }
+
+      /* =================================
+           TYPOGRAPHY
+        ================================= */
+
+      h1 {
+        font-size: 5rem;
+        margin-bottom: 1rem;
+        text-align: center;
+        opacity: 0;
+        transform: scale(0.8);
+        transition: opacity 0.8s ease 0.7s, transform 0.8s ease 0.7s;
+      }
+
+      section.section-active h1,
+      section.section-visited h1 {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      p {
+        font-size: 1.2rem;
+        color: #aaa;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease 1s, transform 0.8s ease 1s;
+      }
+
+      section.section-active p,
+      section.section-visited p {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ===== NAVBAR & HERO ENTRY ANIMATION ===== */
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navbar-animate {
+  animation: fadeDown 1s ease forwards;
+}
+
+.hero-animate h1,
+.hero-animate p {
+  animation: fadeUp 1s ease forwards;
+}
+
+.hero-animate .hero-image {
+  animation: fadeUp 1s ease forwards;
+}
+
+
+      /* =================================
+           HOME SECTION
+        ================================= */
+
+      .hero-image {
+        position: relative;
+        width: 800px;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 1.2s ease 1.2s, transform 1.2s ease 1.2s;
+      }
+
+      section.section-active .hero-image,
+      section.section-visited .hero-image {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .main-image {
+        width: auto;
+        height: 480px;
+        display: block;
+        margin-left: 100px;
+        transition: transform 0.3s ease;
+      }
+
+      .main-image:hover {
+        transform: scale(1.02);
+      }
+
+      /* Chat Bubbles */
+      .bubble-left,
+      .bubble-right {
+        position: absolute;
+        max-width: 180px;
+        padding: 15px 20px;
+        font-size: 25px;
+        border-radius: 20px;
+        box-shadow: 0 0 5px #000;
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+
+      .bubble-left {
+        background: #f2f1ec;
+        color: #000;
+        left: -10%;
+        top: 25%;
+        transform: translateX(-30px);
+        transition: opacity 0.8s ease 1.5s, transform 0.8s ease 1.5s;
+      }
+
+      .bubble-right {
+        background: #db7750;
+        color: white;
+        right: -10%;
+        top: 30%;
+        transform: translateX(30px);
+        transition: opacity 0.8s ease 1.7s, transform 0.8s ease 1.7s;
+      }
+
+      section.section-active .bubble-left,
+      section.section-visited .bubble-left,
+      section.section-active .bubble-right,
+      section.section-visited .bubble-right {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .bubble-left:hover,
+      .bubble-right:hover {
+        transform: scale(1.05) translateY(-5px) !important;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .bubble-left::after {
+        content: "";
+        position: absolute;
+        top: 25px;
+        right: -19px;
+        rotate: 180deg;
+        border: 10px solid transparent;
+        border-right-color: #f2f1ec;
+      }
+
+      .bubble-right::after {
+        content: "";
+        position: absolute;
+        top: 20px;
+        left: -19px;
+        rotate: 180deg;
+        border: 10px solid transparent;
+        border-left-color: #db7750;
+      }
+
+      /* =================================
+           ABOUT SECTION
+        ================================= */
+
+      .about-container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1200px;
+        position: relative;
+        margin-top: 100px;
+        margin-left: 200px;
+      }
+
+      .about-image {
+        width: 520px;
+        z-index: 10;
+        margin-left: 555px;
+        margin-top: -338px;
+        opacity: 0;
+        transform: translateX(50px);
+        transition: opacity 1s ease 0.5s, transform 1s ease 0.5s;
+      }
+
+      section.section-active .about-image,
+      section.section-visited .about-image {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .about-bubble {
+        background: #fdfce9;
+        padding: 20px;
+        border-radius: 20px;
+        max-width: 800px;
+        position: absolute;
+        margin-top: 36px;
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: opacity 1s ease, transform 1s ease;
+      }
+
+      section.section-active .about-bubble,
+      section.section-visited .about-bubble {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .about-bubble p {
+        margin: 10px;
+        font-size: 1.8rem;
+        color: #305563;
+        line-height: 1.5;
+        margin-right: 140px;
+        text-align: left;
+        font-family: "Open Sans", sans-serif;
+      }
+
+      .about-bubble::after {
+        content: "";
+        position: absolute;
+        right: -20px;
+        top: 200px;
+        border: 10px solid transparent;
+        border-left-color: #fdfce9;
+      }
+
+      /* =================================
+           FEATURES SECTION
+        ================================= */
+
+      .features-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .features-image {
+        width: 500px;
+        z-index: 2;
+        opacity: 0;
+        transform: scale(0.8);
+        transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
+      }
+
+      section.section-active .features-image,
+      section.section-visited .features-image {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      /* Feature Bubbles Base Styles */
+      .feature-bubble {
+        position: absolute;
+        background: #f2f1ec;
+        color: #000;
+        padding: 15px 15px;
+        border-radius: 20px;
+        width: 230px;
+        text-align: center;
+        font-size: 1.3rem;
+        opacity: 0;
+        transform: scale(0.8);
+        transition: all 0.3s ease;
+      }
+
+      section.section-active .feature-bubble,
+      section.section-visited .feature-bubble {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .feature-bubble:hover {
+        background-color: #e4e3da;
+        transform: scale(1.05) !important;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .feature-bubble::after {
+        content: "";
+        position: absolute;
+        border: 10px solid transparent;
+      }
+
+      /* Individual Feature Bubble Positions and Animations */
+      .bubble1 {
+        top: 10%;
+        left: -245px;
+        transition: opacity 0.6s ease 0.5s, transform 0.6s ease 0.5s;
+      }
+
+      .bubble1::after {
+        top: 20px;
+        right: -19px;
+        border-left-color: #f2f1ec;
+      }
+
+      .bubble2 {
+        top: 40%;
+        left: -245px;
+        transition: opacity 0.6s ease 0.7s, transform 0.6s ease 0.7s;
+      }
+
+      .bubble2::after {
+        top: 45px;
+        right: -19px;
+        border-left-color: #f2f1ec;
+      }
+
+      .bubble3 {
+        bottom: 10%;
+        left: -245px;
+        transition: opacity 0.6s ease 0.9s, transform 0.6s ease 0.9s;
+      }
+
+      .bubble3::after {
+        bottom: 20px;
+        right: -19px;
+        border-left-color: #f2f1ec;
+      }
+
+      .bubble4 {
+        top: 10%;
+        right: -245px;
+        transition: opacity 0.6s ease 1.1s, transform 0.6s ease 1.1s;
+      }
+
+      .bubble4::after {
+        top: 20px;
+        left: -19px;
+        border-right-color: #f2f1ec;
+      }
+
+      .bubble5 {
+        top: 40%;
+        right: -245px;
+        transition: opacity 0.6s ease 1.3s, transform 0.6s ease 1.3s;
+      }
+
+      .bubble5::after {
+        top: 45px;
+        left: -19px;
+        border-right-color: #f2f1ec;
+      }
+
+      .bubble6 {
+        bottom: 10%;
+        right: -245px;
+        transition: opacity 0.6s ease 1.5s, transform 0.6s ease 1.5s;
+      }
+
+      .bubble6::after {
+        bottom: 20px;
+        left: -19px;
+        border-right-color: #f2f1ec;
+      }
+
+      /* =================================
+           FEEDBACK SECTION - Enhanced Form
+        ================================= */
+
+      .feedback-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+        max-width: 700px;
+        margin-top: 30px;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease 0.8s, transform 0.8s ease 0.8s;
+      }
+
+      section.section-active .feedback-form,
+      section.section-visited .feedback-form {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .form-row {
+        display: flex;
+        gap: 20px;
+        width: 100%;
+      }
+
+      .form-group {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .form-group label {
+        color: #81a4b7;
+        font-size: 1rem;
+        margin-bottom: 5px;
+        font-weight: 500;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        padding: 12px 15px;
+        border: 2px solid #305563;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.05);
+        color: white;
+        font-family: "Orbitron", sans-serif;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: #81a4b7;
+        background: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 15px rgba(129, 164, 183, 0.3);
+      }
+
+      .form-group textarea {
+        width: 600px;
+        height: 150px;
+        resize: horizontal;
+      }
+
+      .submit-btn {
+        background: linear-gradient(45deg, #4f7c8f, #81a4b7);
+        color: white;
+        padding: 15px 40px;
+        border: none;
+        border-radius: 25px;
+        font-family: "Orbitron", sans-serif;
+        font-size: 1.1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .submit-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+
+      .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(79, 124, 143, 0.4);
+        background: linear-gradient(45deg, #5a8ba0, #9bb8c7);
+      }
+
+      .submit-btn:hover::before {
+        left: 100%;
+      }
+
+      .submit-btn:active {
+        transform: translateY(0);
+      }
+
+      /* Form animations for individual elements */
+      .form-group:nth-child(1) input {
+        animation: formSlideIn 0.6s ease 1s both;
+      }
+      .form-group:nth-child(2) input {
+        animation: formSlideIn 0.6s ease 1.1s both;
+      }
+      .form-group:nth-child(3) textarea {
+        animation: formSlideIn 0.6s ease 1.2s both;
+      }
+      .submit-btn {
+        animation: formSlideIn 0.6s ease 1.3s both;
+      }
+
+      @keyframes formSlideIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* =================================
+           FOOTER - Enhanced Design
+        ================================= */
+
+      footer {
+        text-align: center;
+        font-size: 1rem;
+        color: #ccc;
+        padding: 40px 20px;
+        position: relative;
+      }
+
+      .footer-section {
+        background: #111 ;
+        color: #ccc ;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .footer-content {
+        position: relative;
+        z-index: 2;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
+      }
+
+      section.section-active .footer-content,
+      section.section-visited .footer-content {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .footer-section h1 {
+        font-size: 20rem;
+        margin: 0;
+        color: rgba(129, 164, 183, 0.1);
+        text-shadow: 0 0 50px rgba(46, 107, 141, 0.2);
+        user-select: none;
+        pointer-events: none;
+        margin-top: 140px;
+      }
+
+      .footer-info {
+        margin-top: -80px;
+        position: relative;
+        z-index: 3;
+        margin-top: 50px;
+      }
+
+      .footer-info p {
+        font-size: 1.1rem;
+        margin: 10px 0;
+        color: #81a4b7;
+        font-weight: 300;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin: 20px 0;
+        flex-wrap: wrap;
+      }
+
+      .footer-links a {
+        color: #ccc;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        position: relative;
+        padding: 5px 0;
+      }
+
+      .footer-links a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 1px;
+        bottom: 0;
+        left: 50%;
+        background-color: #81a4b7;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+
+      .footer-links a:hover {
+        color: #81a4b7;
+        transform: translateY(-2px);
+      }
+
+      .footer-links a:hover::after {
+        width: 100%;
+      }
+
+      .footer-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #81a4b7, transparent);
+        opacity: 0.5;
+      }
+
+      /* =================================
+           UTILITY CLASSES
+        ================================= */
+
+      ul {
+        font-size: 1.2rem;
+        list-style: none;
+        padding: 0;
+        text-align: center;
+      }
+
+      /* =================================
+           RESPONSIVE DESIGN
+        ================================= */
+
+      @media (max-width: 768px) {
+        .dot-navigation {
+          right: 15px;
+        }
+
+        .nav-dot {
+          width: 10px;
+          height: 10px;
+        }
+
+        header {
+          flex-direction: column;
+          gap: 10px;
+          padding: 20px;
+        }
+
+        nav {
+          display: none;
+        }
+
+        .bubble-left,
+        .bubble-right {
+          position: static;
+          margin: 10px auto;
+        }
+
+        .bubble-left::after,
+        .bubble-right::after {
+          display: none;
+        }
+
+        .hero-image {
+          max-width: 90%;
+        }
+
+        .feature-bubble {
+          position: static;
+          margin: 10px;
+          width: auto;
+        }
+
+        .feature-bubble::after {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Floating Particles Background -->
+    <div class="background-particles"></div>
+
+    <!-- Dot Navigation -->
+    <div class="dot-navigation">
+      <div class="nav-dot active" data-section="0"></div>
+      <div class="nav-dot" data-section="1"></div>
+      <div class="nav-dot" data-section="2"></div>
+      <div class="nav-dot" data-section="3"></div>
+      <div class="nav-dot" data-section="4"></div>
+    </div>
+
+    <!-- Full Page Container -->
+    <div class="fullpage-container">
+      <div class="sections-wrapper">
+        <!-- =================================
+             HOME SECTION
+        ================================= -->
+        <section class="section-active">
+          <header>
+            <div class="logo">Mind<span>Orba</span></div>
+            <nav>
+              <a href="#">Home</a>
+              <a href="#">About</a>
+              <a href="#">Features</a>
+              <a href="#">Feedback</a>
+            </nav>
+            <a href="{{ url_for('chat') }}" class="start-chat">Start Chat</a>
+          </header>
+
+          <h1>Hello, I'm Mind<span style="color: #81a4b7">Orba</span></h1>
+          <p>Your AI-Powered Mental Health Companion</p>
+
+          <div class="hero-image">
+            <img
+              src="{{ url_for('static', filename='home.png') }}"
+              alt="MindOrba comforting human"
+              class="main-image" />
+            <div class="bubble-left">Don't worry<br />I am here...</div>
+            <div class="bubble-right">I am feeling<br />sad..</div>
+          </div>
+        </section>
+
+        <!-- =================================
+             ABOUT SECTION
+        ================================= -->
+        <section>
+          <h1 class="section-title">About</h1>
+          <div class="about-container">
+            <div class="about-bubble">
+              <p>
+                Hello, I'm MindOrba, your mental wellness companion. I'm here to
+                help you feel calm, relaxed, and supported—no matter what you're
+                going through. When things feel overwhelming, you can talk to
+                me. I'll listen without judgment, offer gentle guidance, and
+                help you breathe a little easier. You're not alone—I'm always
+                here for you. Let's take one peaceful step at a time, together
+              </p>
+            </div>
+            <img src="{{ url_for('static', filename='about.png') }}" alt="MindOrba About" class="about-image" />
+          </div>
+        </section>
+
+        <!-- =================================
+             FEATURES SECTION
+        ================================= -->
+        <section>
+          <h1 class="section-title">Future</h1>
+          <div class="features-container">
+            <img
+              src="{{ url_for('static', filename='feature.png') }}"
+              alt="MindOrba Future"
+              class="features-image" />
+
+            <!-- Feature Bubbles -->
+            <div class="feature-bubble bubble1">
+              🧠 Emotion-Aware Voice<br />Interaction
+            </div>
+            <div class="feature-bubble bubble2">
+              🎨 Personalized Therapy<br />Rooms (AR/VR)
+            </div>
+            <div class="feature-bubble bubble3">
+              📔 AI Mood Diary with<br />Sentiment Insights
+            </div>
+            <div class="feature-bubble bubble4">
+              🌙 Sleep Companion<br />Mode
+            </div>
+            <div class="feature-bubble bubble5">
+              📅 Smart Crisis Scheduler<br />& Follow-Ups
+            </div>
+            <div class="feature-bubble bubble6">
+              🤝 Therapist Sync &<br />Report Sharing
+            </div>
+          </div>
+        </section>
+
+        <!-- =================================
+             FEEDBACK SECTION
+        ================================= -->
+        <section>
+          <h1>Share Your Experience</h1>
+          <p>We value your feedback and suggestions to improve MindOrba</p>
+
+          <div class="feedback-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Enter your name"
+                  required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="feedback">Your Feedback</label>
+              <textarea
+                id="feedback"
+                name="feedback"
+                placeholder="Share your thoughts, suggestions, or report any issues..."
+                required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Feedback</button>
+          </div>
+        </section>
+
+        <!-- =================================
+             FOOTER SECTION
+        ================================= -->
+        <section class="footer-section">
+          <div class="footer-content">
+            <h1>Footer</h1>
+            <div class="footer-info">
+              <p>Empowering conversations through artificial intelligence</p>
+              <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Support</a>
+                <a href="#">Documentation</a>
+                <a href="#">API</a>
+              </div>
+              <p>&copy; 2024 MindOrba. All rights reserved.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- =================================
+         JAVASCRIPT EFFECTS
+    ================================= -->
+    <script>
+
+      // hero navbar
+      window.addEventListener("DOMContentLoaded", () => {
+    const header = document.querySelector("header");
+    const heroSection = document.querySelector("section.section-active");
+
+    // Add animation classes
+    header.classList.add("navbar-animate");
+    heroSection.classList.add("hero-animate");
+  });
+      // Full Page Scroll Implementation
+      let currentSection = 0;
+      const sections = document.querySelectorAll("section");
+      const totalSections = sections.length;
+      const sectionsWrapper = document.querySelector(".sections-wrapper");
+      const navDots = document.querySelectorAll(".nav-dot");
+
+      let isScrolling = false;
+      let touchStartY = 0;
+      let touchEndY = 0;
+
+      // Initialize first section
+      sections[0].classList.add("section-active");
+
+      function updateActiveSection(newSection) {
+        if (newSection < 0 || newSection >= totalSections || isScrolling)
+          return;
+
+        isScrolling = true;
+
+        // Remove active class from current section
+        sections[currentSection].classList.remove("section-active");
+        sections[currentSection].classList.add("section-visited");
+
+        // Update current section
+        currentSection = newSection;
+
+        // Add active class to new section
+        sections[currentSection].classList.add("section-active");
+
+        // Transform the wrapper
+        sectionsWrapper.style.transform = `translateY(-${
+          currentSection * 100
+        }vh)`;
+
+        // Update navigation dots
+        navDots.forEach((dot) => dot.classList.remove("active"));
+        navDots[currentSection].classList.add("active");
+
+        // Reset scrolling flag after animation
+        setTimeout(() => {
+          isScrolling = false;
+        }, 800);
+      }
+
+      // Wheel scroll event
+      document.addEventListener(
+        "wheel",
+        (e) => {
+          e.preventDefault();
+
+          if (isScrolling) return;
+
+          if (e.deltaY > 0) {
+            // Scroll down
+            updateActiveSection(currentSection + 1);
+          } else {
+            // Scroll up
+            updateActiveSection(currentSection - 1);
+          }
+        },
+        { passive: false }
+      );
+
+      // Touch events for mobile
+      document.addEventListener("touchstart", (e) => {
+        touchStartY = e.touches[0].clientY;
+      });
+
+      document.addEventListener("touchend", (e) => {
+        touchEndY = e.changedTouches[0].clientY;
+        handleTouchScroll();
+      });
+
+      function handleTouchScroll() {
+        if (isScrolling) return;
+
+        const touchDiff = touchStartY - touchEndY;
+        const minSwipeDistance = 50;
+
+        if (Math.abs(touchDiff) > minSwipeDistance) {
+          if (touchDiff > 0) {
+            // Swipe up - go to next section
+            updateActiveSection(currentSection + 1);
+          } else {
+            // Swipe down - go to previous section
+            updateActiveSection(currentSection - 1);
+          }
+        }
+      }
+
+      // Keyboard navigation
+      document.addEventListener("keydown", (e) => {
+        if (isScrolling) return;
+
+        switch (e.key) {
+          case "ArrowDown":
+          case " ":
+            e.preventDefault();
+            updateActiveSection(currentSection + 1);
+            break;
+          case "ArrowUp":
+            e.preventDefault();
+            updateActiveSection(currentSection - 1);
+            break;
+          case "Home":
+            e.preventDefault();
+            updateActiveSection(0);
+            break;
+          case "End":
+            e.preventDefault();
+            updateActiveSection(totalSections - 1);
+            break;
+        }
+      });
+
+      // Dot navigation clicks
+      navDots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          updateActiveSection(index);
+        });
+      });
+
+      // Prevent context menu and other default behaviors
+      document.addEventListener("contextmenu", (e) => e.preventDefault());
+
+      // Sparkle Trail Effect
+      document.addEventListener("mousemove", function (e) {
+        if (Math.random() > 0.85) {
+          const sparkle = document.createElement("div");
+          sparkle.className = "sparkle";
+          sparkle.style.left = `${e.clientX}px`;
+          sparkle.style.top = `${e.clientY}px`;
+          document.body.appendChild(sparkle);
+          setTimeout(() => sparkle.remove(), 1000);
+        }
+      });
+
+      // Floating Background Particles
+      const particleContainer = document.querySelector(".background-particles");
+
+      function createFloatingParticle() {
+        const particle = document.createElement("div");
+        particle.className = "particle";
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.animationDuration = `${7 + Math.random() * 4}s`;
+        particleContainer.appendChild(particle);
+        setTimeout(() => particle.remove(), 12000);
+      }
+
+      setInterval(createFloatingParticle, 300);
+
+      // Handle window resize
+      window.addEventListener("resize", () => {
+        sectionsWrapper.style.transform = `translateY(-${
+          currentSection * 100
+        }vh)`;
+      });
+    </script>
+  </body>
+</html>
