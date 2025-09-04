@@ -2,7 +2,8 @@
 
 **MindOrba** is a conversational AI chatbot built with **Python (Flask)**, using **JSON** for lightweight data storage and **Ollama** for natural language processing.  
 It’s designed to support mental well-being through empathetic conversations, mood tracking, and persona-driven interactions.  
-
+---
+[🎥 Watch Demo](assets/demo.mp4)
 ---
 
 ## ✨ Features  
